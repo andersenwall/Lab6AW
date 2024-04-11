@@ -13,6 +13,13 @@ def encode(start):
         end = end + endlist[i]
     return end
 
+def decode(end):
+    start = ""
+    for digit in end:
+        decoded_digit = str((int(digit) - 3) % 10)
+        start += decoded_digit
+    return start
+
 
 def main():
     while True:
@@ -24,15 +31,15 @@ def main():
         print()
         s = input("Please enter an option: ")
 
-        if s == 1:
+        if s == '1':
             start = input("Please enter your password to encode: ")
             end = encode(start)
-            print("Your password has been encoded and stored!")
+            print("Your password has been encoded and stored!\n")
 
-        elif s == 2:
+        elif s == '2':
             start = decode(end)
-            print(f"The encoded password is {int(end)}, and the original password is {int(start)}.")
-        elif s == 3:
+            print(f"The encoded password is {int(end)}, and the original password is {int(start)}.\n")
+        elif s == '3':
             break
 
 
